@@ -1,0 +1,35 @@
+CREATE TABLE children_store (id TEXT, quantity INTEGER, size INTEGER, brand TEXT, color TEXT, price NUMERIC);
+INSERT INTO children_store VALUES ("boypants", 5, 1, "noah", "black", 6.50); 
+INSERT INTO children_store VALUES ("girlpants", 5, 1, "lilly", "white", 6.50); 
+INSERT INTO children_store VALUES ("boypants", 5, 2, "noah", "black", 6.50);
+INSERT INTO children_store VALUES ("girlpants", 5, 2, "lilly", "white", 6.50);
+INSERT INTO children_store VALUES ("boyshirts", 5, 1, "noah", "black", 4.50);
+INSERT INTO children_store VALUES ("girlshirts", 5, 1, "lilly", "white", 4.50);
+INSERT INTO children_store VALUES ("boyshirts", 5, 2, "noah", "black", 4.50);
+INSERT INTO children_store VALUES ("girlshirts", 5, 2, "lilly", "white", 4.50);
+INSERT INTO children_store VALUES ("boycoats", 5, 1, "noah", "black", 10.00);
+INSERT INTO children_store VALues ("girlcoats", 5, 1, "lilly", "white", 10.00);
+INSERT INTO children_store VALUES ("girldresses", 5, 1, "lilly", "white", 15.00);
+INSERT INTO children_store VALUES ("boysuits", 5, 1, "noah", "black", 15.00);
+INSERT INTO children_store VAlUES ("boyshoes", 5, 1, "noah", "black", 13.50);
+INSERT INTO children_store VALUES ("girlshoes", 5, 1, "lilly", "white", 13.50);
+INSERT INTO children_store VALUES ("hairbows", 5, 1, "lilly", "red", 5.00);
+
+SELECT * FROM children_store ORDER BY price;
+SELECT SUM(quantity) FROM children_store GROUP BY price;
+
+
+--display the database ordered by price. 
+SELECT * FROM store
+ORDER BY price desc; 
+
+--what is the avg price of items in the bulk section? 
+SELECT AVG(price) "avg bulk item price"
+FROM store
+where section='bulk'; 
+
+--what are the most 5 popular items? 
+SELECT item, price, popularity
+FROM store
+order by popularity desc
+limit 5; 
